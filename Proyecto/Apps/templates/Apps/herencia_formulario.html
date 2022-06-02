@@ -36,16 +36,18 @@
         </header>
         <!-- About section-->
         <section id="Formulario">
-            <form action="/formulario/" method="POST">
+            <form "{% url 'usuario_formulario' %}" method="POST">{% csrf_token %}
+               
+                <table>
 
-                <p>Nombre: <input type="text" name=Nombre></p>
+                    {{ formulario.as_table }}
 
-                <p>Apellido: <input type="text" name=Apellido></p>
+                </table>
 
-                
+                <input type="submit" value="enviar">
 
-
-          
+            </form>    
+                         
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">

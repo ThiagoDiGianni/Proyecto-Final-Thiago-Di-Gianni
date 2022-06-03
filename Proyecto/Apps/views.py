@@ -11,6 +11,10 @@ def inicio(request):
     
     return render(request, "Apps/template1.html")
 
+def padre(request):
+    
+    return render(request, "Apps/template_padre.html")    
+
 def usuario_formulario(request):
     
     if request.method == 'POST':
@@ -25,8 +29,10 @@ def usuario_formulario(request):
             
             Usuario.save()
             
-            return render(request, 'Apps/herencia_formulario.html')
+            return render(request, 'Apps/template1.html')
 
     else:
         mi_formulario=usuarios()
-    return render(request, 'Apps/herencia_formulario.html', {'formulario':mi_formulario})             
+    return render(request, 'Apps/herencia_formulario.html', {'formulario':mi_formulario})      
+    
+

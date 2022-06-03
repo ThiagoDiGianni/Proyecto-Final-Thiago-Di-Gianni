@@ -6,6 +6,7 @@ urlpatterns = [
     
     path('', inicio ),
     path('formulario', views.usuario_formulario, name="Formulario"),
+    path('ejemplo',padre)
     
 
 

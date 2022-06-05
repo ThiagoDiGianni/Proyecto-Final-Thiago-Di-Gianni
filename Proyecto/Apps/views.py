@@ -11,9 +11,20 @@ def inicio(request):
     
     return render(request, "Apps/template1.html")
 
+
 def padre(request):
     
     return render(request, "Apps/template_padre.html")    
+
+
+def mostrar_usuario(request):
+
+      user = usuario.objects.all() 
+
+      contexto = {"user":user} 
+
+      return render(request, "Apps/mostrar_usuario.html",contexto) 
+
 
 def usuario_formulario(request):
     
@@ -36,3 +47,12 @@ def usuario_formulario(request):
     return render(request, 'Apps/herencia_formulario.html', {'formulario':mi_formulario})      
     
 
+def eliminar_usuario(request, usuario_nombre):
+
+      usuarios = usuario.objects.get(nombre=usuario_nombre)
+      usuarios.delete()
+      user = usuario.objects.all() 
+
+      contexto= {"user":user} 
+
+      return render(request, "Apps/mostrar_usuario.html",contexto)

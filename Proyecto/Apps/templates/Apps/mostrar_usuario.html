@@ -19,9 +19,9 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">EJEMPLO</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">EJEMPLO</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">EJEMPLO</a></li>
                     </ul>
                 </div>
             </div>
@@ -29,29 +29,30 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Welcome to Scrolling Nav</h1>
-                <p class="lead">A functional Bootstrap 5 boilerplate for one page scrolling websites</p>
-                <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a>
+                <h1 class="fw-bolder">EJEMPLO H1</h1>
+                <p class="lead">EJEMPLO TEXTO</p>
+                
             </div>
         </header>
         <!-- About section-->
-        <section id="formulario">
-            <form "{% url 'Formulario' %}" method="POST">{% csrf_token %}
-               
-                <table>
-
-                    {{ formulario.as_table }}
-
-                </table>
+        <section id="info_usuarios">
+            <h3>     USUARIOS REGISTRADOS:</h3><br>
+             
+            {% for usuario in user %}
                 
-                <br><input type="submit" value="enviar">
+                <li> {{usuario.nombre}} {{usuario.apellido}}, {{usuario.email}} </li>
+                <button>
+                    <a href= "{% url 'eliminar_usuario' usuario.nombre %}" > Eliminar </a>
+                </button>    
 
-            </form>    
-                         
+            {% endfor %}    
+            
+            <br> <a href='formulario'> CREAR USUARIO </a>
+
         </section>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+
+        <footer>
+            
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

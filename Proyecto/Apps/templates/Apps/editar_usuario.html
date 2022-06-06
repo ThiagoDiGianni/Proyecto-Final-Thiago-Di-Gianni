@@ -35,25 +35,21 @@
             </div>
         </header>
         <!-- About section-->
-        <section id="info_usuarios">
-            <h3>     USUARIOS REGISTRADOS:</h3><br>
+        <section id="editar_usuarios">
+            <h3>     EDITAR USUARIO:</h3><br>
              
-            {% for usuario in user %}
-                
-                <li> {{usuario.nombre}} {{usuario.apellido}}, {{usuario.email}} </li>
-                <button>
-                    <a href= "{% url 'eliminar_usuario' usuario.nombre %}"> Eliminar </a>
-                </button>    
-                <button>
-                    <a href= "{% url 'editar_usuario' usuario.nombre %}"> Editar </a>
-                </button>    
+            <form "{% url 'editar_usuario' nombre  %}" method="POST">{% csrf_token %}
+               
+                <table>
 
-            {% endfor %}    
-            <br>
-            <br>
-            <button> 
-               <a href="formulario"> CREAR USUARIO </a>
-            </button>
+                    {{ formulario.as_table }}
+
+                </table>
+                
+                <br><input type="submit" value="Editar">
+
+            </form>  
+
         </section>
 
         <footer>

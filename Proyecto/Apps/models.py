@@ -5,6 +5,8 @@ class usuario(models.Model):
     apellido = models.CharField(max_length=30)
     email = models.EmailField()
    
+    def __str__(self):
+        return f"Nombre: {self.nombre} {self.apellido}, Email: {self.email}"
    
     
     

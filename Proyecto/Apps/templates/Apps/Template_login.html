@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Formulario - Thiago Di Gianni</title>
+        <title>Login - Thiago Di Gianni</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'Apps/css/styles.css' %}" rel="stylesheet" />
@@ -28,29 +28,29 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Welcome to Scrolling Nav</h1>
-                <p class="lead">A functional Bootstrap 5 boilerplate for one page scrolling websites</p>
-                <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a>
+                <h1 class="fw-bolder">LOGIN</h1>
+                
+                
             </div>
         </header>
         <!-- About section-->
-        <section id="formulario">
-            <form "{% url 'Formulario' %}" method="POST">{% csrf_token %}
+        <section id="login">
+            <form action="" method="POST">{% csrf_token %}
                
                 <table>
 
-                    {{ formulario.as_table }}
+                    {{ formulario.as_p }}
 
                 </table>
                 
-                <br><input type="submit" value="enviar">
+                <br><input type="submit" value="login">
 
             </form>    
-                         
+
         </section>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+
+        <footer >
+           
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

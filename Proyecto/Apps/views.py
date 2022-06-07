@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login,authenticate,logout
 
 from .models import *
 from .views import *
@@ -13,6 +15,11 @@ def inicio(request):
 def padre(request):
     
     return render(request, "Apps/template_padre.html")    
+
+
+def blog(request):
+    
+    return render(request, "Apps/Template_blog.html")    
 
 
 def mostrar_usuario(request):
@@ -58,7 +65,7 @@ def eliminar_usuario(request,nombre):
 
 def editar_usuario(request,nombre):
 
-    Usuario = usuario.objects.get( nombre = nombre )
+    Usuario = usuario.objects.get( nombre = usuario.nombre )
 
     if request.method == 'POST':
 
@@ -75,7 +82,7 @@ def editar_usuario(request,nombre):
             user = usuario.objects.all()
             contexto = {'user':user}
 
-            return render(request,"Apps/mostrar_usuario.html",contexto)
+            return render(request,'Apps/mostrar_usuario.html',contexto)
 
     else:
 
@@ -86,3 +93,22 @@ def editar_usuario(request,nombre):
 
 
     
+def login_request(request):
+    if request.method == 'POST':
+        formulario = AuthenticationForm(request=request,data=request.POST)
+        if formulario.is_valid():
+            usuario1 = formulario.cleaned_data.get('username')
+            clave = formulario.cleaned_data.get('password')
+
+            user = authenticate(username=usuario1,password=clave)
+            if user is not None:
+                login(request,user)
+                return render(request, 'Apps/template1.html', {'usuario':usuario1,'mensaje':'binvenido al sistema'})
+            else:
+                return render(request,'Apps/template1.html', {'mensaje':'USUARIO INCORRECTO'})
+        else:
+            
+            return render(request,'Apps/template1.html',{'mensaje':'FORMULARIO INVALIDO'})
+    else:
+       formulario = AuthenticationForm()
+       return render(request, 'Apps/Template_login.html',{'formulario':formulario})

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Formulario - Thiago Di Gianni</title>
+        <title>Blog - Thiago Di Gianni</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'Apps/css/styles.css' %}" rel="stylesheet" />
@@ -28,27 +28,45 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Welcome to Scrolling Nav</h1>
-                <p class="lead">A functional Bootstrap 5 boilerplate for one page scrolling websites</p>
-                <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a>
+                <h1 class="fw-bolder">Acerca de mi</h1>
+                
+                
             </div>
         </header>
         <!-- About section-->
-        <section id="formulario">
-            <form "{% url 'Formulario' %}" method="POST">{% csrf_token %}
-               
-                <table>
+        <section id="Blog">
+            <h3>¿Quien soy?</h3>
+            <br>
+              <p>Mi nombre es Thiago Di Gianni, tengo 21 años y soy de la ciudad de Lanus en Buenos Aires Argentina.<p>
+                <br>
+                <br>
+            <h3>¿A que me dedico?</h3>  
+            <br>    
+              <p>En este momento me dedico a mantener un emprendimiento propio de comidas caseras llamado @thiagoencasa, este nombre se debe a que inicio en la cuarentena de 2020,
+                   donde solo podia usar mi casa para cocinar.<p>
+                    <br>
+                    <br>
+            <h3>Planes a futuro: </h3>
+            <br>
+              <p>Mi plan es terminar el curso de Python para continuar mi aprendizaje con la carrera de Data Analytics, dentro de CoderHouse,
+                  y tambien poder aprender ingles en el proceso.</p> 
+                  <br>
+                  <br>
+            <h3>¿Que hago en mi tiempo libre? </h3>
+            <br>
+              <p>Mi tiempo libre se distribuye en distintas actividades. En este momento el mismo se divide en, entrenar y jugar al Rugby,
+                   compartir con mi novia y jugar videojuegos.</p>
+                   <br>
+                   <br>
+            <h3>¿Que me motivo a empezar en la programacion?</h3> 
+            <br>
+              <p>Hace aproximadamente un año un amigo me comento sobre el mundo de la programacion, del cual yo no tenia idea, y en el cual el comenzo a adentrarse.
+                  Pronto empeze a investigar mas por mi cuenta, y descubri el mundo de posibilidades que este brindaba, ademas de ser algo que me parecia de lo mas interesante
+                y moderno. En poco tiempo estaba anotandome junto a un amigo en mi primer curso de Python en CoderHouse, hasta llegar a este proyecto.</p>                    
 
-                    {{ formulario.as_table }}
 
-                </table>
-                
-                <br><input type="submit" value="enviar">
-
-            </form>    
-                         
         </section>
-        <!-- Footer-->
+
         <footer class="py-5 bg-dark">
             <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
         </footer>

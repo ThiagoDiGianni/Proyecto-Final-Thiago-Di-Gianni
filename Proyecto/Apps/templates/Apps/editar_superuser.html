@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Login - Thiago Di Gianni</title>
+        <title>Formulario - Thiago Di Gianni</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'Apps/css/styles.css' %}" rel="stylesheet" />
@@ -28,35 +28,31 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">LOGIN</h1>
-                <p class="lead">Logueate para acceder a todo el contenido de la pagina!!!</p>
-                
+                <h1 class="fw-bolder">EDITA TU CONTRASEÑA</h1>
+                <p class="lead"></p>
                 
             </div>
         </header>
         <!-- About section-->
-        <section id="login">
-            <h3>Completa los campos para loguearte:</h3>
-            <br>
-            <form action="" method="POST">{% csrf_token %}
+        <section id="editar_usuarios">
+            <h3>     Editar contraseña de: {{superuser}} </h3><br>
+             
+            <form "{% url 'editar_superuser'   %}" method="POST">{% csrf_token %}
                
                 <table>
 
-                    {{ formulario.as_p }}
+                    {{ formulario.as_table }}
 
                 </table>
                 
-                <br><input type="submit" value="login">
+                <br><input type="submit" value="Editar">
 
-            </form> 
-            <br>
-            <br>   
-            <p>Si aún no tienes una cuenta, cliquea aqui para registrarte.</p><a href='register'>Registrarse</a>
+            </form>  
 
         </section>
 
-        <footer >
-           
+        <footer>
+            
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

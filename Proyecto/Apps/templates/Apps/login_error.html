@@ -28,35 +28,20 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">LOGIN</h1>
-                <p class="lead">Logueate para acceder a todo el contenido de la pagina!!!</p>
-                
+                <h1 class="fw-bolder">ERROR AL LOGUEARSE.</h1>
+                <p class="lead">Vuelva a intentarlo.</p>
                 
             </div>
         </header>
         <!-- About section-->
-        <section id="login">
-            <h3>Completa los campos para loguearte:</h3>
-            <br>
-            <form action="" method="POST">{% csrf_token %}
-               
-                <table>
+        <section id="">
+            <a href="login"> Volver a Login </a>
 
-                    {{ formulario.as_p }}
-
-                </table>
-                
-                <br><input type="submit" value="login">
-
-            </form> 
-            <br>
-            <br>   
-            <p>Si aún no tienes una cuenta, cliquea aqui para registrarte.</p><a href='register'>Registrarse</a>
 
         </section>
 
         <footer >
-           
+            
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

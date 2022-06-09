@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Login - Thiago Di Gianni</title>
+        <title>Registro - Thiago Di Gianni</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'Apps/css/styles.css' %}" rel="stylesheet" />
@@ -28,15 +28,14 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">LOGIN</h1>
-                <p class="lead">Logueate para acceder a todo el contenido de la pagina!!!</p>
-                
+                <h1 class="fw-bolder">REGISTER</h1>
+                <p class="lead">Registrate para acceder a todo el contenido de la pagina!!!</p>
                 
             </div>
         </header>
         <!-- About section-->
-        <section id="login">
-            <h3>Completa los campos para loguearte:</h3>
+        <section id="Register">
+            <h3>Completa los campos para registrarte:</h3>
             <br>
             <form action="" method="POST">{% csrf_token %}
                
@@ -46,12 +45,9 @@
 
                 </table>
                 
-                <br><input type="submit" value="login">
+                <br><input type="submit" value="Registrar">
 
-            </form> 
-            <br>
-            <br>   
-            <p>Si aún no tienes una cuenta, cliquea aqui para registrarte.</p><a href='register'>Registrarse</a>
+            </form>    
 
         </section>
 

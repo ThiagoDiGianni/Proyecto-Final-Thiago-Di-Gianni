@@ -7,6 +7,6 @@ class usuario(models.Model):
    
     def __str__(self):
         return f"Nombre: {self.nombre} {self.apellido}, Email: {self.email}"
-   
+ #--------------------------------------------------------------------------------------------------  
     
     

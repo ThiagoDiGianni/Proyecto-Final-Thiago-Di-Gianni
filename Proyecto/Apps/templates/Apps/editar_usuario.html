@@ -28,14 +28,14 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">EJEMPLO H1</h1>
-                <p class="lead">EJEMPLO TEXTO</p>
+                <h1 class="fw-bolder">EDITA EL USUARIO SELECCIONADO</h1>
+                <p class="lead"></p>
                 
             </div>
         </header>
         <!-- About section-->
         <section id="editar_usuarios">
-            <h3>     EDITAR USUARIO:</h3><br>
+            <h3>     Editar usuario:</h3><br>
              
             <form "{% url 'editar_usuario' nombre  %}" method="POST">{% csrf_token %}
                

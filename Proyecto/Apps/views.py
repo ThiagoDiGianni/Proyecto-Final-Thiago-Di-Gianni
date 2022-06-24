@@ -4,15 +4,21 @@ from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 from .models import *
 from .views import *
 from .forms import *
-#--------------------------------------------------------------------------------------------------
 
+#--------------------------------------------------------------------------------------------------
+@login_required
 def inicio(request):
     
-    return render(request, "Apps/template1.html")
+    avatar = Avatar.objects.filter(user=request.user)
+    return render(request, "Apps/template1.html",{'url':avatar[0].avatar.url})
+
+    
+
 #--------------------------------------------------------------------------------------------------
 
 def padre(request):
@@ -144,19 +150,19 @@ def editar_superuser(request):
 
       superuser = request.user
      
-      if request.method == "POST":
-            mi_formulario = UserEditForm(request.POST) 
+      if request.method == 'POST':
+            mi_formulario = UserEditForm(request.POST, instance=superuser) 
             
-            if mi_formulario.is_valid:   
+            if mi_formulario.is_valid():   
 
                   informacion = mi_formulario.cleaned_data
                               
-                  
+                  superuser.email = informacion['email']
                   superuser.password1 = informacion['password1']
                   superuser.password2 = informacion['password2']
                   superuser.save()
 
-                  return render(request, "Apps/template1.html")    
+                  return render(request, "Apps/edicion_exitoso.html")    
       
       else:             
             mi_formulario = UserEditForm(instance=superuser) 

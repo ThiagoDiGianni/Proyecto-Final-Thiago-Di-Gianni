@@ -24,11 +24,12 @@ class UserRegistrationForm(UserCreationForm):
 
 class UserEditForm(UserCreationForm):
     
+    email = forms.EmailField(label="Modificar E-mail")
     password1 = forms.CharField(label="Modificar Contraseña",widget=forms.PasswordInput)
     password2 = forms.CharField(label="Confirmar contraseña",widget=forms.PasswordInput)
 
     
     class Meta:
         model = User
-        fields = ('password1','password2')
+        fields = ( 'password1','password2','email')
         help_texts = {k:"" for k in fields}

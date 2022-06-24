@@ -28,30 +28,19 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">EDITA TU CONTRASEÑA</h1>
-                <p class="lead"></p>
+                <h1 class="fw-bolder">USTED EDITO SU USUARIO CORRECTAMENTE.</h1>
+                <p class="lead">Puede disfrutar de la pagina.</p>
                 
             </div>
         </header>
         <!-- About section-->
-        <section id="editar_usuarios">
-            <h3>     Editar datos de: {{superuser}} </h3><br>
-             
-            <form "{% url 'editar_superuser'   %}" method="POST">{% csrf_token %}
-               
-                <table>
+        <section id="">
+            <a href="/"> Ir al inicio </a>
 
-                    {{ formulario.as_table }}
-
-                </table>
-                
-                <br><input type="submit" value="Editar">
-
-            </form>  
 
         </section>
 
-        <footer>
+        <footer >
             
         </footer>
         <!-- Bootstrap core JS-->

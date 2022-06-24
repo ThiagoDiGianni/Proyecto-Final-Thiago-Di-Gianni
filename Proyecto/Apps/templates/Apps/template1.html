@@ -21,6 +21,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="login">Loguear</a></li>
                         <li class="nav-item"><a class="nav-link" href="logout">Desloguear</a></li>
+                        <li class="nav-item"><a class="nav-link" href="editar_superuser">Mi usuario</a></li>
                         
                     </ul>
                 </div>
@@ -31,6 +32,15 @@
             <div class="container px-4 text-center">
                 <h1 class="fw-bolder">Proyecto final CoderHouse</h1>
                 <p class="lead">Por Thiago Di Gianni...</p>
+                {% if not request.user.is_authenticated %}
+
+                <p>.</p>
+
+                {% else %}
+                
+                <img src="{{url}}" width='200'  alt=""/>
+                
+                {% endif %}
                 
             </div>
         </header>

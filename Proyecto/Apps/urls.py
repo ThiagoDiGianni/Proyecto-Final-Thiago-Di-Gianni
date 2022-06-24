@@ -19,6 +19,8 @@ urlpatterns = [
     path('logout',LogoutView.as_view(template_name="Apps/logout.html"),name='logout'),
 
     path('editar_superuser',views.editar_superuser,name="editar_superuser"),
+    path('agregar_avatar',views.agregar_avatar ,name='agregar_avatar'),
+    path('mi_usuario',views.mi_usuario, name='mi_usuario')
 
 
 

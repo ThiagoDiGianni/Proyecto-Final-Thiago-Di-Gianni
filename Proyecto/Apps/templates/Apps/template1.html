@@ -21,7 +21,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="login">Loguear</a></li>
                         <li class="nav-item"><a class="nav-link" href="logout">Desloguear</a></li>
-                        <li class="nav-item"><a class="nav-link" href="editar_superuser">Mi usuario</a></li>
+                        <li class="nav-item"><a class="nav-link" href="mi_usuario">Mi usuario</a></li>
                         
                     </ul>
                 </div>
@@ -32,15 +32,15 @@
             <div class="container px-4 text-center">
                 <h1 class="fw-bolder">Proyecto final CoderHouse</h1>
                 <p class="lead">Por Thiago Di Gianni...</p>
-                {% if not request.user.is_authenticated %}
-
-                <p>.</p>
-
-                {% else %}
+                <br>
                 
-                <img src="{{url}}" width='200'  alt=""/>
                 
-                {% endif %}
+                <img src="{{url}}" width='150'  alt=""/>
+                <br>
+                <br>
+                <h5>Bienvenido {{user}} </h5>
+                
+                
                 
             </div>
         </header>
@@ -54,8 +54,7 @@
                         <ul>
                             <li>Crea un registro de ser querido o familiar tocando el link.</li><a href='formulario' >Crear!!!</a>
                             <li>Mira los seres queridos o familiares creados.</li><a href='usuarios_info' >Ver registro!!!</a>
-                            <!--<li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                            <li>Minimal custom CSS so you are free to explore your own unique design options</li>-->
+                            
                         </ul>
                     </div>
                 </div>

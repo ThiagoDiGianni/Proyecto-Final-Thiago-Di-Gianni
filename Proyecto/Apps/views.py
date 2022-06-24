@@ -17,7 +17,12 @@ def inicio(request):
     avatar = Avatar.objects.filter(user=request.user)
     return render(request, "Apps/template1.html",{'url':avatar[0].avatar.url})
 
+#--------------------------------------------------------------------------------------------------
+@login_required
+def mi_usuario(request):
     
+    avatar = Avatar.objects.filter(user=request.user)
+    return render(request, "Apps/mi_usuario.html",{'url':avatar[0].avatar.url})    
 
 #--------------------------------------------------------------------------------------------------
 
@@ -25,7 +30,7 @@ def padre(request):
     
     return render(request, "Apps/template_padre.html")    
 #--------------------------------------------------------------------------------------------------
-
+@login_required
 def blog(request):
     
     return render(request, "Apps/Template_blog.html")    
@@ -168,3 +173,53 @@ def editar_superuser(request):
             mi_formulario = UserEditForm(instance=superuser) 
       
       return render(request, "Apps/editar_superuser.html", {"formulario":mi_formulario,'superuser':superuser.username})         
+
+#--------------------------------------------------------------------------------------------------
+@login_required
+def agregar_avatar(request):
+    
+    user = User.objects.get(username=request.user)
+
+    if request.method == 'POST':
+
+        formulario = Avatar_formulario(request.POST, request.FILES)
+
+        if formulario.is_valid():
+            
+
+            avatar = Avatar(user=user,avatar=formulario.cleaned_data['avatar'])
+            avatar.save()
+            
+            return render(request,'Apps/avatar_exitoso.html')
+
+    else:
+
+        formulario = Avatar_formulario()
+    return render(request,'Apps/agregar_avatar.html', {'formulario':formulario, 'usuario':user})            
+
+#--------------------------------------------------------------------------------------------------
+@login_required
+def editar_avatar(request):
+    
+    user = User.objects.get(username=request.user)
+
+    if request.method == 'POST':
+
+        formulario = Avatar_formulario(request.POST, request.FILES)
+
+        if formulario.is_valid():
+            
+            avatar_viejo = Avatar.objects.get(user=request.user)
+            
+            if(avatar_viejo.avatar):
+                avatar_viejo.delete()
+
+            avatar = Avatar(user=user,avatar=formulario.cleaned_data['avatar'])
+            avatar.save()
+            
+            return render(request,'Apps/avatar_exitoso.html')
+
+    else:
+
+        formulario = Avatar_formulario()
+    return render(request,'Apps/agregar_avatar.html', {'formulario':formulario, 'usuario':user})         

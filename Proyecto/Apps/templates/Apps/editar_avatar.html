@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Mi usuario - Thiago Di Gianni</title>
+        <title>Agregar avatar - Thiago Di Gianni</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'Apps/css/styles.css' %}" rel="stylesheet" />
@@ -19,7 +19,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Inicio</a></li>
                         
                     </ul>
                 </div>
@@ -28,27 +28,30 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Mi usuario</h1>
+                <h1 class="fw-bolder">AGREGA UN AVATAR</h1>
                 <p class="lead"></p>
-                <br>
-                <img src="{{url}}" width='150'  alt=""/>
-                <br>
-                <br>
-                <h5>Bienvenido {{user}} </h5>
+                
             </div>
         </header>
         <!-- About section-->
-        <section id="">
-            <h3>Datos de usuario:</h3>
-            <a href="editar_superuser"> Editar contraseña y mail </a>
-            <br>
-            <br>
-            <h3>Avatar:</h3>
-            <a href="editar_avatar"> Editar Avatar </a>
+        <section id="editar_avatar">
+            <h3>     Agregar Avatar de: {{user}} </h3><br>
+             
+            <form "{% url 'editar_avatar'   %}" method="POST" enctype="multipart/form-data" >{% csrf_token %}
+               
+                <table>
+
+                    {{ formulario.as_table }}
+
+                </table>
+                
+                <br><input type="submit" value="Agregar">
+
+            </form>  
 
         </section>
 
-        <footer >
+        <footer>
             
         </footer>
         <!-- Bootstrap core JS-->

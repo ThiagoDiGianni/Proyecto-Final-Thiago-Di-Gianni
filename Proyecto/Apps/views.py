@@ -26,9 +26,9 @@ def mi_usuario(request):
 
 #--------------------------------------------------------------------------------------------------
 
-def padre(request):
+def registro_pruebas(request):
     
-    return render(request, "Apps/template_padre.html")    
+    return render(request, "Apps/registro_pruebas.html")    
 #--------------------------------------------------------------------------------------------------
 @login_required
 def blog(request):
@@ -222,4 +222,4 @@ def editar_avatar(request):
     else:
 
         formulario = Avatar_formulario()
-    return render(request,'Apps/agregar_avatar.html', {'formulario':formulario, 'usuario':user})         
+    return render(request,'Apps/editar_avatar.html', {'formulario':formulario, 'usuario':user})         

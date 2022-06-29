@@ -25,15 +25,15 @@ def mi_usuario(request):
     return render(request, "Apps/mi_usuario.html",{'url':avatar[0].avatar.url})    
 
 #--------------------------------------------------------------------------------------------------
-
+@login_required
 def registro_pruebas(request):
     
     return render(request, "Apps/registro_pruebas.html")    
 #--------------------------------------------------------------------------------------------------
 @login_required
-def blog(request):
+def sobre_mi(request):
     
-    return render(request, "Apps/Template_blog.html")    
+    return render(request, "Apps/Template_sobre_mi.html")    
 #--------------------------------------------------------------------------------------------------
 @login_required
 def mostrar_usuario(request):
@@ -222,4 +222,85 @@ def editar_avatar(request):
     else:
 
         formulario = Avatar_formulario()
-    return render(request,'Apps/editar_avatar.html', {'formulario':formulario, 'usuario':user})         
+    return render(request,'Apps/editar_avatar.html', {'formulario':formulario, 'usuario':user})        
+
+#--------------------------------------------------------------------------------------------------
+@login_required
+def blog_formulario(request):
+    
+    if request.method == 'POST':
+
+        mi_formulario = formulario_blog(request.POST,request.FILES)        
+
+        if mi_formulario.is_valid():
+
+            informacion = mi_formulario.cleaned_data
+
+            Blog = blog (titulo=informacion['titulo'], subtitulo=informacion['subtitulo'],
+             imagen=informacion['imagen'], descripcion=informacion['descripcion'])
+            
+            Blog.save()
+            
+            return render(request, 'Apps/blog_exitoso.html')
+
+    else:
+        mi_formulario = formulario_blog()
+    return render(request, 'Apps/crear_blog.html', {'formulario':mi_formulario})     
+
+#--------------------------------------------------------------------------------------------------
+@login_required
+def mostrar_blog(request):
+
+      Blog = blog.objects.all() 
+
+      contexto = {"Blog":Blog} 
+
+      return render(request, "Apps/mostrar_blog.html",contexto)     
+
+#--------------------------------------------------------------------------------------------------
+@login_required
+def eliminar_blog(request,titulo):
+
+      Blog = blog.objects.get(titulo = titulo)
+      Blog.delete()
+
+      Blogs = blog.objects.all() 
+      contexto= {"Blogs":Blogs} 
+
+      return render(request, "Apps/blog_eliminado.html",contexto) 
+
+#--------------------------------------------------------------------------------------------------
+
+@login_required
+def mostrar_mensaje(request):
+
+      Mensaje = mensajes.objects.all() 
+
+      contexto = {"Mensaje":Mensaje} 
+
+      return render(request, "Apps/mensajeria_global.html",contexto)   
+          
+
+#--------------------------------------------------------------------------------------------------
+      
+@login_required
+def formulario_mensaje(request):
+    
+    
+    if request.method == 'POST':
+
+        mi_formulario = mensaje_formulario(request.POST)        
+
+        if mi_formulario.is_valid():
+
+            informacion = mi_formulario.cleaned_data
+
+            Mensaje = mensajes (mensaje=informacion['mensaje'])
+            
+            Mensaje.save()
+            
+            return render(request, 'Apps/mensaje_exitoso.html')
+
+    else:
+        mi_formulario = mensaje_formulario()
+    return render(request, 'Apps/mensajeria.html', {'formulario':mi_formulario})  
